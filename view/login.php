@@ -8,7 +8,7 @@
 </head>
 <body>
     <center>
-        <form action="action" method="post">
+        <form action="action">
             <h2>LOG IN - WaySy</h2>
             <div class="line"></div>
             <label for="email">E-Mail:</label>
@@ -17,10 +17,12 @@
             <label for="pass">Password:</label>
             <input type="password" name="pass" id="pass" required>
 
-            <span>Don't have an account? <a href="../view/signin.php">Sign In now</a></span>
+            <span>Don't have an account? <a href="../view/signin.php">Sign up now</a></span>
 
-            <button type="submit">Log In</button>
-            <button type="reset">Clean</button>
+            <div class="buttons-login">
+                <button type="submit">Log In</button>
+                <button type="reset">Clean</button>
+            </div>            
         </form>
     </center>
 
