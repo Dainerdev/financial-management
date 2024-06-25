@@ -48,18 +48,25 @@ class UserController {
                 $_SESSION["user.find"] = null;
                 header("Location: ../view/index.php");
                 exit;
+
+            } else {
+
+                $_SESSION["user.find"] = null;
+                header("Location: ../view/alerts/credentials.php");
+                exit;
             }
 
-        } catch (Exception $error) {
+        } catch (PDOException $error) {
+
+            $msj = "Database error: " . $error->getMessage();
+
+            $_SESSION["user.find"] = null;
+            header("Location: ../view/alerts/cantLogin.php?msj=$msj");
+            exit;
+
+        }catch (Exception $error) {
             
-            if (strstr($error-> getMessage(), $pass)) {
-                
-                $msj = "An error has occurred with the credentials.";               
-
-            }else {
-
-                $msj = "Credentials not found.";
-            }
+            $msj = "An unexpected error has occurred: " . $error->getMessage();
 
             $_SESSION["user.find"] = null;
             header("Location: ../view/alerts/cantLogin.php?msj=$msj");
