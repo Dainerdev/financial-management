@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bank - Dainer Florian</title>
+    <?php include 'components/link_bootstrap.php';?>
 </head>
 <body>
     <div class="container">
-        <div class="title">
-            <h1>Welcome @user to your Bank</h1>
+        <header class="jumbotron text-center">
+            <h1>Welcome @user to WaySy, your Bank.</h1>
             <p>Try our new features!</p>
-        </div>
+        </header>
     </div>
+
+    <?php include 'components/script_bootstrap.php';?>
 </body>
 </html>
