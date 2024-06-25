@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . 'Financial_management/models/entities/User.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . 'Financial_management/models/entities/Goal.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . 'Financial_management/models/entities/Category.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . 'waysy/models/entities/User.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . 'waysy/models/entities/Goal.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . 'waysy/models/entities/Category.php';
 
 
 

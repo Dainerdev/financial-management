@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "financial_management/libs/config.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "waysy/libs/config.php";
 
 class User extends ActiveRecord\Model {
     
