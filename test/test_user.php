@@ -14,7 +14,6 @@ $u->last_name = 'Alcantara Martínez';
 $u->email = 'asdadad@gmail.com';
 $u->password = 'asdhaksjd';
 $u->age = '2005-06-10';
-$u->registration_date = '2024-06-24';
 
 try {
     $u->save();
