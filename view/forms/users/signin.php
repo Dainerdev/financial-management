@@ -1,4 +1,6 @@
 <?php
+    $msjId = @$_REQUEST["msjId"]; 
+    $msjEmail = @$_REQUEST["msjE"]; 
     $msj = @$_REQUEST["msj"]; 
 ?>
 
@@ -22,6 +24,9 @@
                     <div class="inputs">
                         <label for="id">Id:</label>
                         <input type="text" name="id" id="id" required placeholder="Id number">
+                        <div class="alert">
+                            <span><?= ($msjId != NULL || isset($msjId)) ? $msjId : "" ?></span>
+                        </div>
 
                         <label for="type">Type id:</label>
                         <select name="type" id="type" required>
@@ -41,6 +46,9 @@
 
                         <label for="email">E-mail:</label>
                         <input type="email" name="email" id="email" required placeholder="ex@mple.com">
+                        <div class="alert">
+                            <span><?= ($msjEmail != NULL || isset($msjEmail)) ? $msjEmail : "" ?></span>
+                        </div>
 
                         <label for="pass">Password:</label>
                         <input type="password" name="pass" id="pass" required>
@@ -50,12 +58,12 @@
                     </div>
 
                     <div class="span">
-                        <span>Do you have an account? <a href="login.php">Log in now</a></span>
+                        <span>Do you have an account? <a href="../../index.php">Log in now</a></span>
                     </div>
 
                     <div class="buttons-signin">
                         <input type="submit" name="action" id="action" value="Sign In">
-                        <a href="login.php"><input type="button" value="Cancel" id="cancel"></a>
+                        <a href="../../index.php"><input type="button" value="Cancel" id="cancel"></a>
                     </div> 
                 </div>
                 <div class="line"></div>
