@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include '../components/link_bootstrap.php';?>
     <title>Alert - WaySy</title>
 </head>
 <body>
@@ -14,11 +13,10 @@
                 Please, try again.
             </p>
             <div class="buttons-alert">
-                <a href="../forms/users/login.php">Ok</a>
+                <a href="../index.php">Ok</a>
             </div>
         </div>
     </div>
 
-    <?php include '../components/script_bootstrap.php';?>
 </body>
 </html>
