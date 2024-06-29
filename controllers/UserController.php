@@ -42,11 +42,11 @@ class UserController {
             if ($u) {
 
                 $_SESSION["user.find"] = serialize($u);                 
-                header("Location: ../view/index.php");
+                header("Location: ../view/forms/users/main.php");
                 exit;
                 
                 $_SESSION["user.find"] = null;
-                header("Location: ../view/index.php");
+                header("Location: ../view/forms/users/main.php");
                 exit;
 
             } else {
@@ -83,51 +83,76 @@ class UserController {
         $lastname = @$_REQUEST["lname"];
         $email = @$_REQUEST["email"];
         $pass = @$_REQUEST["pass"];
-        $age = @$_REQUEST["age"];
-
-        $u = new User();
-
-        $u-> id = $id;
-        $u-> type_id = $type;
-        $u-> name_a = $namea;
-        $u-> name_b = $nameb;
-        $u-> last_name = $lastname;
-        $u-> email = $email;
-        $u-> password = $pass;
-        $u-> age = $age;
+        $age = @$_REQUEST["age"];   
 
 
-        if (empty($u)) {
-            $msj = "Please, fill in all fields.";
+        // Id number validation
+        if ($u = User::find('first', array('conditions' => 
+                array('id_user = ?', $id)))) {
+            
+            $_SESSION["user.find"] = serialize($u);
+            $msjId = "This id number is already in use.";
 
-            header("Location: ../view/forms/users/signin.php?msj=$msj");
+            header("Location: ../view/forms/users/signin.php?msjId=$msjId");
+            exit;            
+        
+        // email unique validation
+        } if ($u = User::find('first', array('conditions' => 
+            array('email = ?', $email)))) {
+
+            $_SESSION["user.find"] = serialize($u);
+            $msjEmail = "This email is already in use. Try another email.";
+
+            header("Location: ../view/forms/users/signin.php?msjE=$msjEmail");
             exit;
 
-        }else { 
+        } else {
+            
+            $u = new User();
 
-            try {
-                
-                $u-> save();
-                $msj = "Succesfully registered.";   
-                
-                header("Location: ../view/alerts/registered.php?msj=$msj");
+            $u-> id = $id;
+            $u-> type_id = $type;
+            $u-> name_a = $namea;
+            $u-> name_b = $nameb;
+            $u-> last_name = $lastname;
+            $u-> email = $email;
+            $u-> password = $pass;
+            $u-> age = $age;
+
+            if (empty($u)) {
+                $msj = "Please, fill in all fields.";
+
+                header("Location: ../view/forms/users/signin.php?msj=$msj");
                 exit;
 
-            } catch (Exception $error) {
-                if (strstr($error-> getMessage(), "Duplicate")) {
+            } else { 
+
+                try {
+
+                    $u-> save();
+                    $msj = "Succesfully registered.";   
                     
-                    $msj = "This account already exists.";
+                    header("Location: ../view/alerts/registered.php?msj=$msj");
+                    exit;
 
-                }else {
+                } catch (Exception $error) {
+                    if (strstr($error-> getMessage(), "Duplicate")) {
+                        
+                        $msj = "This account already exists.";
 
-                    $msj = "An error has occurred.";
-                }                
+                    }else {
+
+                        $msj = "An error has occurred.";
+                    }                
+                }
+
+                header("Location: ../view/forms/users/signin.php");
+                exit;
+
             }
-
-            header("Location: ../view/forms/users/signin.php");
-            exit;
-
         }
+
+        
     }
 }
 
