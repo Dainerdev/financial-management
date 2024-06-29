@@ -21,7 +21,7 @@
                     
                     <div class="inputs">
                         <label for="email">E-Mail:</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" required placeholder="ex@mple.com">
 
                         <label for="pass">Password:</label>
                         <input type="password" name="pass" id="pass" required>
@@ -33,7 +33,7 @@
 
                     <div class="buttons-login">
                         <input type="submit" name="action" id="action" value="Log In">
-                        <input type="reset" value="Clean">
+                        <input type="reset" value="Clean" id="clean">
                     </div> 
                 </div> 
                 <div class="line"></div>          
