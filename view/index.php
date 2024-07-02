@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link href="css/login.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/general.css" rel="stylesheet">
     <title>Log In - WaySy</title>
 </head>
 <body>
