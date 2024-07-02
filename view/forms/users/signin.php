@@ -1,6 +1,7 @@
 <?php
     $msjId = @$_REQUEST["msjId"]; 
     $msjEmail = @$_REQUEST["msjE"]; 
+    $msjPass = @$_REQUEST["msjP"];
     $msj = @$_REQUEST["msj"]; 
 ?>
 
@@ -55,6 +56,9 @@
 
                         <label for="pass2">Confirm Password:</label>
                         <input type="password" name="pass2" id="pass2" required>
+                        <div class="alert">
+                            <span><?= ($msjPass != NULL || isset($msjPass)) ? $msjPass : "" ?></span>
+                        </div>
 
                         <label for="age">Date of birth:</label>
                         <input type="date" name="age" id="age" required>
@@ -81,6 +85,5 @@
             </form>
         </div>    
     </center>
-    <script src="../../js/signin.js" defer></script>
 </body>
 </html>
