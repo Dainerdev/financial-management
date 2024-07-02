@@ -41,11 +41,11 @@ class UserController {
 
             if ($u) {
 
-                $_SESSION["user.find"] = serialize($u);                 
-                header("Location: ../view/forms/users/main.php");
-                exit;
+                $userController = new UserController();
+                $userName = $userController->findByEmail($email);   
                 
-                $_SESSION["user.find"] = null;
+                $_SESSION["user.find"] = $userName;
+                 
                 header("Location: ../view/forms/users/main.php");
                 exit;
 
@@ -166,6 +166,20 @@ class UserController {
 
         
     }
+
+    public function findByEmail($email){
+
+        $user = User::find_by_email($email);
+
+        if ($user) {
+            return $user->name_a; 
+
+        } else {
+            return "Usuario no encontrado";
+        }
+    }
+
+
 }
 
 UserController::runAction();
