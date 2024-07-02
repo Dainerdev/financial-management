@@ -76,15 +76,15 @@ class UserController {
 
     public static function signin() {
         
-        $id = @$_REQUEST["id"];
+        $id = @$_REQUEST["id"];        
         $type = @$_REQUEST["type"];
         $namea = @$_REQUEST["namea"];
         $nameb = @$_REQUEST["nameb"];
         $lastname = @$_REQUEST["lname"];
         $email = @$_REQUEST["email"];
         $pass = @$_REQUEST["pass"];
-        $age = @$_REQUEST["age"];   
-
+        $pass2 = @$_REQUEST["pass2"];
+        $age = @$_REQUEST["age"];  
 
         // Id number validation
         if ($u = User::find('first', array('conditions' => 
@@ -95,15 +95,27 @@ class UserController {
 
             header("Location: ../view/forms/users/signin.php?msjId=$msjId");
             exit;            
-        
+               
+        }
+
         // email unique validation
-        } if ($u = User::find('first', array('conditions' => 
+        if ($u = User::find('first', array('conditions' => 
             array('email = ?', $email)))) {
 
             $_SESSION["user.find"] = serialize($u);
             $msjEmail = "This email is already in use. Try another email.";
 
             header("Location: ../view/forms/users/signin.php?msjE=$msjEmail");
+            exit;
+            
+        }        
+
+        // password match validation
+        if ($pass != $pass2) {
+
+            $msjPass = "Passwords do not match. Please, try again.";
+
+            header("Location: ../view/forms/users/signin.php?msjP=$msjPass");
             exit;
 
         } else {
