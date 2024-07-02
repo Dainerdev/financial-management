@@ -16,7 +16,7 @@
 <body>
     <center>
         <div class="container-form">
-            <form action="../../../controllers/UserController.php" class="form" method="post">
+            <form action="../../../controllers/UserController.php" class="form" method="post" id="form">
                 <div>
                     <h1>Sign Up</h1>
                     <div class="line"></div>
@@ -53,6 +53,9 @@
                         <label for="pass">Password:</label>
                         <input type="password" name="pass" id="pass" required>
 
+                        <label for="pass2">Confirm Password:</label>
+                        <input type="password" name="pass2" id="pass2" required>
+
                         <label for="age">Date of birth:</label>
                         <input type="date" name="age" id="age" required>
                     </div>
@@ -78,5 +81,6 @@
             </form>
         </div>    
     </center>
+    <script src="../../js/signin.js" defer></script>
 </body>
 </html>
